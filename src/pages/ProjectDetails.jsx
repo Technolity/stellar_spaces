@@ -9,10 +9,10 @@ const ProjectDetails = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Project Not Found</h1>
-          <Link to="/" className="btn-primary">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">Project Not Found</h1>
+          <Link to="/" className="btn-primary font-sans">
             Back to Home
           </Link>
         </div>
@@ -21,21 +21,21 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm">
+      <nav className="bg-white dark:bg-gray-900 shadow-sm transition-colors duration-300">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
-              <span className="text-xl font-serif font-bold text-gray-900">
+              <div className="w-8 h-8 bg-pink-500 rounded-full"></div>
+              <span className="text-xl font-bold text-gray-900 dark:text-gray-100 font-sans">
                 Stellar Spaces
               </span>
             </Link>
             
             <Link 
               to="/" 
-              className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
+              className="text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors duration-300 font-sans"
             >
               ← Back to Projects
             </Link>
@@ -52,17 +52,17 @@ const ProjectDetails = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-12"
           >
-            <span className="inline-block bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 font-sans">
               {project.category}
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 font-sans">
               {project.title}
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 font-sans">
               {project.description}
             </p>
             
-            <div className="flex flex-wrap justify-center gap-6 text-gray-500">
+            <div className="flex flex-wrap justify-center gap-6 text-gray-500 dark:text-gray-400 font-sans">
               <div>
                 <span className="font-semibold">Location:</span> {project.location}
               </div>
@@ -97,11 +97,11 @@ const ProjectDetails = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="lg:col-span-2"
             >
-              <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 font-sans">
                 Project Overview
               </h2>
               
-              <div className="prose prose-lg text-gray-600">
+              <div className="prose prose-lg text-gray-600 dark:text-gray-300 font-sans">
                 <p className="mb-6">
                   This innovative project represents the pinnacle of modern architectural design, 
                   combining cutting-edge technology with sustainable practices to create a space 
@@ -114,13 +114,13 @@ const ProjectDetails = () => {
                   contributing to the overall aesthetic appeal.
                 </p>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 font-sans">
                   Key Features
                 </h3>
                 <ul className="space-y-2 mb-8">
                   {project.details.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                       {feature}
                     </li>
                   ))}
@@ -135,40 +135,40 @@ const ProjectDetails = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="space-y-6"
             >
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-serif font-bold text-gray-900 mb-4">
+              <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
                   Project Details
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-600">Architect:</span>
-                    <span className="font-semibold">{project.details.architect}</span>
+                  <div className="flex justify-between border-b border-gray-100 dark:border-gray-600 pb-2">
+                    <span className="text-gray-600 dark:text-gray-300 font-sans">Architect:</span>
+                    <span className="font-semibold text-gray-900 dark:text-gray-100 font-sans">{project.details.architect}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-600">Area:</span>
-                    <span className="font-semibold">{project.details.area}</span>
+                  <div className="flex justify-between border-b border-gray-100 dark:border-gray-600 pb-2">
+                    <span className="text-gray-600 dark:text-gray-300 font-sans">Area:</span>
+                    <span className="font-semibold text-gray-900 dark:text-gray-100 font-sans">{project.details.area}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-600">Status:</span>
-                    <span className="font-semibold">{project.details.status}</span>
+                  <div className="flex justify-between border-b border-gray-100 dark:border-gray-600 pb-2">
+                    <span className="text-gray-600 dark:text-gray-300 font-sans">Status:</span>
+                    <span className="font-semibold text-gray-900 dark:text-gray-100 font-sans">{project.details.status}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Category:</span>
-                    <span className="font-semibold">{project.category}</span>
+                    <span className="text-gray-600 dark:text-gray-300 font-sans">Category:</span>
+                    <span className="font-semibold text-gray-900 dark:text-gray-100 font-sans">{project.category}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-blue-600 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-serif font-bold mb-4">
+              <div className="bg-pink-500 rounded-2xl p-6 text-white">
+                <h3 className="text-xl font-bold mb-4 font-sans">
                   Start Your Project
                 </h3>
-                <p className="mb-4">
+                <p className="mb-4 font-sans">
                   Inspired by this project? Let's discuss how we can bring your vision to life.
                 </p>
                 <Link
                   to="/#contact"
-                  className="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors w-full text-center"
+                  className="inline-block bg-white text-pink-500 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors w-full text-center font-sans"
                 >
                   Get In Touch
                 </Link>
