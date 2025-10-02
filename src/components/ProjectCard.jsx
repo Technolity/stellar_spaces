@@ -15,7 +15,7 @@ const ProjectCard = ({ project, index }) => {
       whileHover={{ y: -5 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="group bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer"
+      className="group bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-colors duration-300"
     >
       {/* Image Container */}
       <div className="relative overflow-hidden">
@@ -39,7 +39,7 @@ const ProjectCard = ({ project, index }) => {
             transition={{ duration: 0.3 }}
           >
             <Link to={`/project/${project.id}`}>
-              <button className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors">
+              <button className="bg-white dark:bg-gray-800 text-pink-600 dark:text-pink-400 font-semibold px-6 py-3 rounded-lg hover:bg-pink-50 dark:hover:bg-gray-600 transition-colors font-sans">
                 View Details
               </button>
             </Link>
@@ -48,7 +48,7 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
-          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <span className="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium font-sans">
             {project.category}
           </span>
         </div>
@@ -56,14 +56,14 @@ const ProjectCard = ({ project, index }) => {
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors font-mono">
-  {project.title}
-</h3>
-<p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 font-sans">
-  {project.description}
-</p>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors font-sans">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 font-sans">
+          {project.description}
+        </p>
         
-        <div className="flex justify-between items-center text-sm text-gray-500">
+        <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 font-sans">
           <span>{project.location}</span>
           <span>{project.year}</span>
         </div>
