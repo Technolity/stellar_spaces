@@ -26,31 +26,24 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-gray-900 text-white">
+    <section id="about" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
       <div className="container-custom">
-      {/* Section Header */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="text-center mb-16"
->
-  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-mono">
-    Our Story
-  </h2>
-  <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
-    From a student's vision to an industry-leading architectural firm.
-  </p>
-</motion.div>
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
+            Our Story
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
+            From a student's vision to an industry-leading architectural firm.
+          </p>
+        </motion.div>
 
-{/* In the founder story section */}
-<h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 font-mono">
-  The Vision Behind Stellar Spaces
-</h3>
-<div className="space-y-4 text-gray-700 dark:text-gray-300 font-sans">
-  {/* Your content */}
-</div>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Founder Story */}
           <motion.div
@@ -59,10 +52,10 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-serif font-bold mb-6">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 font-sans">
               The Vision Behind Stellar Spaces
             </h3>
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-4 text-gray-700 dark:text-gray-300 font-sans">
               <p className="text-lg leading-relaxed">
                 Founded by architecture student Alex Morgan, Stellar Spaces began as a passion project 
                 to bridge the gap between academic theory and real-world architectural practice.
@@ -91,10 +84,10 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center"
+                  className="text-center bg-white dark:bg-gray-700 rounded-2xl p-4 shadow-lg transition-colors duration-300"
                 >
-                  <div className="text-2xl font-bold text-blue-400">{stat.number}</div>
-                  <div className="text-gray-400">{stat.label}</div>
+                  <div className="text-2xl font-bold text-pink-500">{stat.number}</div>
+                  <div className="text-gray-600 dark:text-gray-300 font-sans">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -109,7 +102,7 @@ const About = () => {
             className="relative"
           >
             {/* Vertical Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-600"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-pink-200 dark:bg-pink-900"></div>
 
             {timeline.map((item, index) => (
               <motion.div
@@ -121,14 +114,14 @@ const About = () => {
                 className="relative flex items-start mb-8 last:mb-0"
               >
                 {/* Year Marker */}
-                <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10">
+                <div className="flex-shrink-0 w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-lg font-sans">
                   {item.year}
                 </div>
                 
                 {/* Content */}
-                <div className="ml-6 flex-1">
-                  <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-                  <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                <div className="ml-6 flex-1 bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg transition-colors duration-300">
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 font-sans">{item.title}</h4>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-sans">{item.description}</p>
                 </div>
               </motion.div>
             ))}
