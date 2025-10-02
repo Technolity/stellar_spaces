@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { testimonials, clients } from '../data/dummyData'
-import TestimonialCard from './TestomonialCard'
+import TestimonialCard from './TestimonialCard'
 
 const Clients = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -14,23 +14,23 @@ const Clients = () => {
   }, [])
 
   return (
-    <section id="clients" className="section-padding bg-white">
+    <section id="clients" className="section-padding bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container-custom">
         {/* Section Header */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="text-center mb-16"
->
-  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-mono">
-    Trusted by Industry Leaders
-  </h2>
-  <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
-    We've had the privilege of working with amazing clients who trust our vision and expertise.
-  </p>
-</motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
+            Trusted by Industry Leaders
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
+            We've had the privilege of working with amazing clients who trust our vision and expertise.
+          </p>
+        </motion.div>
 
         {/* Testimonials Carousel */}
         <motion.div
@@ -61,8 +61,8 @@ const Clients = () => {
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentTestimonial
-                      ? 'bg-blue-600 scale-125'
-                      : 'bg-gray-300 hover:bg-gray-400'
+                      ? 'bg-pink-500 scale-125'
+                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
                   }`}
                 />
               ))}
@@ -78,7 +78,7 @@ const Clients = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-2xl font-serif font-bold text-gray-900 mb-12">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-12 font-sans">
             Our Clients
           </h3>
           
@@ -91,10 +91,10 @@ const Clients = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.1 }}
-                className="grayscale hover:grayscale-0 transition-all duration-300"
+                className="grayscale hover:grayscale-0 transition-all duration-300 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md"
               >
-                <div className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="font-semibold text-gray-600">{client.name}</span>
+                <div className="w-32 h-16 flex items-center justify-center">
+                  <span className="font-semibold text-gray-600 dark:text-gray-300 font-sans">{client.name}</span>
                 </div>
               </motion.div>
             ))}
