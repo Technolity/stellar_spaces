@@ -12,23 +12,23 @@ const Projects = () => {
     : projects.filter(project => project.category === filter)
 
   return (
-    <section id="projects" className="section-padding bg-gray-50">
+    <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="container-custom">
         {/* Section Header */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="text-center mb-16"
->
-  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-mono">
-    Featured Projects
-  </h2>
-  <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
-    Discover our portfolio of innovative architectural designs that blend creativity with functionality.
-  </p>
-</motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
+            Featured Projects
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
+            Discover our portfolio of innovative architectural designs that blend creativity with functionality.
+          </p>
+        </motion.div>
 
         {/* Filter Buttons */}
         <motion.div
@@ -44,10 +44,10 @@ const Projects = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setFilter(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 font-sans ${
                 filter === category
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
+                  ? 'bg-pink-500 text-white shadow-lg'
+                  : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-md'
               }`}
             >
               {category}
