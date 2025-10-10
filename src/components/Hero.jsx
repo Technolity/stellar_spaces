@@ -12,8 +12,8 @@ const Hero = () => {
   }
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay - LIGHT OVERLAY for dark text visibility */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -24,26 +24,26 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto w-full"
         >
           {/* Large Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="flex justify-center items-center mb-8"
+            className="flex justify-center items-center mb-6 md:mb-8 px-4"
           >
-            <div className="relative">
+            <div className="relative max-w-xs md:max-w-none">
               <div className="absolute inset-0 bg-black/20 rounded-2xl backdrop-blur-sm dark:bg-gray-800/50"></div>
               <img 
                 src="/logo.png"
                 alt="Stellar Spaces Logo"
-                className="h-32 sm:h-40 md:h-48 w-auto relative z-10 contrast-125 brightness-110 saturate-110 mix-blend-multiply dark:invert dark:brightness-200"
+                className="h-24 w-auto sm:h-32 md:h-40 lg:h-48 relative z-10 contrast-125 brightness-110 saturate-110 mix-blend-multiply dark:invert dark:brightness-200 mx-auto"
                 onError={() => setLogoError(true)}
               />
             </div>
@@ -55,7 +55,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-gray-900 dark:text-gray-100 font-sans"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-gray-100 font-sans px-4"
             >
               STELLAR SPACES
             </motion.h1>
@@ -65,7 +65,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl sm:text-2xl lg:text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100 font-sans"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-gray-100 font-sans px-4"
           >
             Redefining Architectural Innovation
           </motion.p>
@@ -74,7 +74,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg sm:text-xl lg:text-2xl mb-12 text-gray-800 max-w-3xl mx-auto leading-relaxed dark:text-gray-200 font-sans font-semibold"
+            className="text-base sm:text-lg md:text-xl mb-8 md:mb-12 text-gray-800 max-w-3xl mx-auto leading-relaxed dark:text-gray-200 font-sans font-medium px-4"
           >
             From concept to creation, bringing visionary designs to life.
           </motion.p>
@@ -86,7 +86,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToProjects}
-            className="btn-primary text-lg px-8 py-4 font-sans font-bold"
+            className="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 font-sans font-bold mx-auto"
           >
             Explore Our Projects
           </motion.button>
@@ -98,17 +98,17 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-900 rounded-full flex justify-center dark:border-gray-100"
+          className="w-5 h-8 md:w-6 md:h-10 border-2 border-gray-900 rounded-full flex justify-center dark:border-gray-100"
         >
           <motion.div
-            animate={{ y: [0, 12, 0] }}
+            animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-gray-900 rounded-full mt-2 dark:bg-gray-100"
+            className="w-1 h-2 md:h-3 bg-gray-900 rounded-full mt-2 dark:bg-gray-100"
           ></motion.div>
         </motion.div>
       </motion.div>
