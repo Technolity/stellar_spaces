@@ -11,11 +11,13 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navbar />
-      <Hero />
-      <Projects />
-      <Clients />
-      <About />
-      <Contact />
+      <main>
+        <Hero />
+        <Projects />
+        <Clients />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </div>
   )
