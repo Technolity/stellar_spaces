@@ -145,4 +145,25 @@
 
 .dark ::selection {
   background-color: #db2777;
+
+  /* Mobile-first responsive improvements */
+.container-custom {
+  @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full;
+}
+
+.section-padding {
+  @apply py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8;
+}
+
+/* Ensure dark mode applies to all elements */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Improve mobile touch targets */
+@media (max-width: 768px) {
+  button, a {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
 }
