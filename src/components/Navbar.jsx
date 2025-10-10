@@ -18,12 +18,17 @@ const Navbar = () => {
     const savedTheme = localStorage.getItem('stellar-theme')
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
+    console.log('Saved theme:', savedTheme)
+    console.log('System prefers dark:', systemPrefersDark)
+    
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-      document.documentElement.classList.add('dark')
       setIsDark(true)
+      document.documentElement.classList.add('dark')
+      console.log('Dark mode initialized')
     } else {
-      document.documentElement.classList.remove('dark')
       setIsDark(false)
+      document.documentElement.classList.remove('dark')
+      console.log('Light mode initialized')
     }
     
     return () => window.removeEventListener('scroll', handleScroll)
@@ -31,14 +36,18 @@ const Navbar = () => {
 
   const toggleDarkMode = () => {
     const newDarkMode = !isDark
+    console.log('Toggling to:', newDarkMode ? 'dark' : 'light')
+    
     setIsDark(newDarkMode)
     
     if (newDarkMode) {
       document.documentElement.classList.add('dark')
       localStorage.setItem('stellar-theme', 'dark')
+      console.log('Dark class added:', document.documentElement.classList.contains('dark'))
     } else {
       document.documentElement.classList.remove('dark')
       localStorage.setItem('stellar-theme', 'light')
+      console.log('Dark class removed:', !document.documentElement.classList.contains('dark'))
     }
   }
 
@@ -106,16 +115,19 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Dark Mode Toggle */}
+            {/* Dark Mode Toggle - FIXED VERSION */}
             <button
               onClick={toggleDarkMode}
-              className={`w-12 h-6 md:w-14 md:h-7 rounded-full p-1 transition-all duration-300 ${
-                isDark ? 'bg-pink-500' : 'bg-gray-300'
-              }`}
+              className="relative w-12 h-6 md:w-14 md:h-7 rounded-full p-1 transition-all duration-300 bg-gray-300 dark:bg-pink-500"
+              aria-label="Toggle dark mode"
             >
-              <div className={`w-4 h-4 md:w-5 md:h-5 bg-white rounded-full shadow-md transition-transform duration-300 transform ${
-                isDark ? 'translate-x-6 md:translate-x-7' : 'translate-x-0'
-              }`} />
+              <motion.div 
+                className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full shadow-md"
+                animate={{
+                  x: isDark ? '24px' : '0px'
+                }}
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              />
             </button>
 
             {/* Mobile Menu Button */}
