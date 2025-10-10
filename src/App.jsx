@@ -6,7 +6,7 @@ import ProjectDetails from './pages/ProjectDetails'
 function App() {
   return (
     <Router>
-      <div className="App min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="App min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
