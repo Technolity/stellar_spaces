@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Rest of your CSS... */
+
 
 @layer base {
   :root {
