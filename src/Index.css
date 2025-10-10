@@ -4,8 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
     --color-primary: 236 72 153; /* pink-500 */
@@ -49,11 +47,11 @@
   }
   
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8;
   }
   
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .line-clamp-2 {
@@ -117,7 +115,7 @@
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #374151;
+  background: #1e293b;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -126,7 +124,7 @@
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #6b7280;
+  background: #475569;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -134,7 +132,7 @@
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #64748b;
 }
 
 /* Selection color */
@@ -145,25 +143,14 @@
 
 .dark ::selection {
   background-color: #db2777;
-
-  /* Mobile-first responsive improvements */
-.container-custom {
-  @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full;
 }
 
-.section-padding {
-  @apply py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8;
-}
-
-/* Ensure dark mode applies to all elements */
-* {
-  @apply transition-colors duration-200;
-}
-
-/* Improve mobile touch targets */
+/* Mobile-first responsive improvements */
+/* Remove the problematic @apply with arbitrary values */
+/* Use regular CSS instead */
 @media (max-width: 768px) {
   button, a {
-    @apply min-h-[44px] min-w-[44px];
+    min-height: 44px;
+    min-width: 44px;
   }
-}
 }
