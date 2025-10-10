@@ -1,211 +1,151 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
+const Footer = () => {
+  const currentYear = new Date().getFullYear()
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! We will get back to you soon.')
-    setFormData({ name: '', email: '', message: '' })
-  }
-
-  const socialPlatforms = [
+  const socialLinks = [
     {
       name: 'Instagram',
-      icon: 'https://cdn-icons-png.flaticon.com/512/2111/2111463.png',
-      url: '#'
+      url: '#',
+      icon: '📷'
     },
     {
-      name: 'LinkedIn', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/3536/3536505.png',
-      url: '#'
+      name: 'LinkedIn',
+      url: '#',
+      icon: '💼'
     },
     {
-      name: 'X (Twitter)',
-      icon: 'https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png',
-      url: '#'
+      name: 'Twitter',
+      url: '#',
+      icon: '🐦'
     },
     {
       name: 'Facebook',
-      icon: 'https://cdn-icons-png.flaticon.com/512/733/733547.png', 
-      url: '#'
+      url: '#',
+      icon: '📘'
     }
   ]
 
+  const footerLinks = {
+    company: [
+      { name: 'About Us', href: '#about' },
+      { name: 'Our Team', href: '#' },
+      { name: 'Careers', href: '#' },
+      { name: 'Contact', href: '#contact' }
+    ],
+    services: [
+      { name: 'Architecture', href: '#projects' },
+      { name: 'Interior Design', href: '#projects' },
+      { name: 'Consulting', href: '#' },
+      { name: 'Project Management', href: '#' }
+    ],
+    resources: [
+      { name: 'Blog', href: '#' },
+      { name: 'Portfolio', href: '#projects' },
+      { name: 'Case Studies', href: '#' },
+      { name: 'FAQs', href: '#' }
+    ]
+  }
+
   return (
-    <section id="contact" className="section-padding bg-white dark:bg-gray-900">
+    <footer className="bg-gray-900 dark:bg-black text-white py-12 transition-colors duration-300">
       <div className="container-custom">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
-            Get In Touch
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
-            Ready to start your next project? Let's discuss how we can bring your vision to life.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-sans">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white font-sans"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-sans">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white font-sans"
-                  placeholder="Enter your email address"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-sans">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="6"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300 resize-none dark:bg-gray-800 dark:border-gray-600 dark:text-white font-sans"
-                  placeholder="Tell us about your project..."
-                ></textarea>
-              </div>
-
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full btn-primary text-lg py-4 font-sans"
-              >
-                Send Message
-              </motion.button>
-            </form>
-          </motion.div>
-
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            {/* Office Location */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
-                Our Office
-              </h3>
-              <div className="space-y-3 text-gray-600 dark:text-gray-300 font-sans">
-                <p>123 Architecture Avenue</p>
-                <p>Design District, New York, NY 10001</p>
-                <p>United States</p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Brand Section */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4 font-sans text-white">
+              Stellar Spaces
+            </h3>
+            <p className="text-gray-400 mb-4 font-sans">
+              Redefining architectural innovation through sustainable design and creative excellence.
+            </p>
+            <div className="flex space-x-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  className="w-10 h-10 bg-gray-800 dark:bg-gray-900 rounded-full flex items-center justify-center hover:bg-pink-500 transition-colors duration-300"
+                  aria-label={social.name}
+                >
+                  <span className="text-lg">{social.icon}</span>
+                </a>
+              ))}
             </div>
+          </div>
 
-            {/* Contact Details */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
-                Contact Details
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm">📧</span>
-                  </div>
-                  <span className="text-gray-600 dark:text-gray-300 font-sans">hello@stellarspaces.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm">📞</span>
-                  </div>
-                  <span className="text-gray-600 dark:text-gray-300 font-sans">+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm">🕒</span>
-                  </div>
-                  <span className="text-gray-600 dark:text-gray-300 font-sans">Mon - Fri: 9:00 AM - 6:00 PM</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Media */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-sans">
-                Follow Us
-              </h3>
-              <div className="flex space-x-4">
-                {socialPlatforms.map((platform) => (
-                  <motion.a
-                    key={platform.name}
-                    href={platform.url}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="w-12 h-12 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-pink-500 hover:border-pink-500 hover:text-white transition-all duration-300 p-2"
+          {/* Company Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 font-sans text-white">Company</h4>
+            <ul className="space-y-2">
+              {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-pink-400 transition-colors duration-300 font-sans"
                   >
-                    <img 
-                      src={platform.icon} 
-                      alt={platform.name}
-                      className="w-6 h-6 filter brightness-0 dark:brightness-0 dark:invert"
-                    />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 font-sans text-white">Services</h4>
+            <ul className="space-y-2">
+              {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-pink-400 transition-colors duration-300 font-sans"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 font-sans text-white">Resources</h4>
+            <ul className="space-y-2">
+              {footerLinks.resources.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-pink-400 transition-colors duration-300 font-sans"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-sm font-sans mb-4 md:mb-0">
+            © {currentYear} Stellar Spaces. All rights reserved.
+          </p>
+          <div className="flex space-x-6">
+            <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors duration-300 text-sm font-sans">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors duration-300 text-sm font-sans">
+              Terms of Service
+            </a>
+            <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors duration-300 text-sm font-sans">
+              Cookie Policy
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+    </footer>
   )
 }
 
-export default Contact
+export default Footer
