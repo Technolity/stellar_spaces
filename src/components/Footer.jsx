@@ -18,7 +18,7 @@ const Footer = () => {
     {
       name: 'Twitter',
       url: '#',
-      icon: '🐦'
+      icon: ''
     },
     {
       name: 'Facebook',
