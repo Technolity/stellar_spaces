@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    --color-primary: 236 72 153; /* pink-500 */
-    --color-primary-dark: 219 39 119; /* pink-600 */
+    --color-primary: 236 72 153;
+    --color-primary-dark: 219 39 119;
   }
 
   html {
@@ -15,11 +15,15 @@
   }
   
   body {
-    font-family: 'Inter', sans-serif;
+    @apply font-sans bg-white text-gray-900 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    @apply font-serif;
   }
 }
 
@@ -30,6 +34,10 @@
   
   .btn-secondary {
     @apply border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300;
+  }
+  
+  .dark .btn-secondary {
+    @apply border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white;
   }
   
   .section-padding {
@@ -80,41 +88,39 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  @apply bg-gray-100;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #1e293b;
+  @apply bg-slate-800;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  @apply bg-gray-300 rounded;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+  @apply bg-slate-600;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  @apply bg-gray-400;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  @apply bg-slate-500;
 }
 
 /* Selection color */
 ::selection {
-  background-color: #ec4899;
-  color: white;
+  @apply bg-pink-500 text-white;
 }
 
 .dark ::selection {
-  background-color: #db2777;
+  @apply bg-pink-600 text-white;
 }
 
-/* Mobile-first responsive improvements */
+/* Mobile improvements */
 @media (max-width: 768px) {
   button, a {
     min-height: 44px;
